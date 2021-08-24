@@ -1,0 +1,9 @@
+#!/bin/bash
+
+TMP_DIR=/tmp/pdftk
+IMAGE=pdftk
+ENTRYPOINT=pdftk
+WORKDIR=/opt
+
+test -d ${TMP_DIR} || mkdir -vp ${TMP_DIR}
+docker run --rm --name pdftk -v ${TMP_DIR}:${WORKDIR} ${IMAGE} ${ENTRYPOINT} $@
